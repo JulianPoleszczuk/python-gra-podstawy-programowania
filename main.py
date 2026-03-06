@@ -8,3 +8,4 @@ while dziala:
         if event.type == pygame.QUIT:
             dziala= False
 pygame.quit()
+print('test')
