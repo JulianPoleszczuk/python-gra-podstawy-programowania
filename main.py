@@ -1,7 +1,8 @@
 import pygame
 from movement import ruszanie
 pygame.init()
-width, height = 640,640
+width, height = 1500,640
+FPS = 60
 screen = pygame.display.set_mode((width, height,))
 pygame.display.set_caption("testa")
 czcionka = pygame.font.SysFont("JetBrains Mono", 24)
@@ -32,5 +33,5 @@ while dziala:
 
 
     pygame.display.update()
-    clock.tick(60) # Limit fps - warto dodac do ustawien wybor. Na razie jest 60 i powinno tyle wystarczyc
+    clock.tick(FPS) # Limit fps - warto dodac do ustawien wybor. Na razie jest 60 i powinno tyle wystarczyc
 pygame.quit()
