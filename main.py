@@ -1,10 +1,11 @@
 import pygame
+from movement import ruszanie
 pygame.init()
 width, height = 640,640
-screen = pygame.display.set_mode((width, height))
+screen = pygame.display.set_mode((width, height,))
 pygame.display.set_caption("testa")
 czcionka = pygame.font.SysFont("JetBrains Mono", 24)
-
+print('test')
 class Postac:
         x = 50
         y = 50
@@ -20,16 +21,7 @@ while dziala:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             dziala= False
-
-    klawisz = pygame.key.get_pressed()
-    if klawisz[pygame.K_LEFT]:
-        gracz.x -= gracz.pred
-    if klawisz[pygame.K_RIGHT]:
-        gracz.x += gracz.pred
-    if klawisz[pygame.K_UP]:
-        gracz.y -= gracz.pred
-    if klawisz[pygame.K_DOWN]:
-        gracz.y += gracz.pred    
+    ruszanie(gracz)
 
     sekundy = pygame.time.get_ticks() // 1000
     napis_czasu = czcionka.render(f"Czas: {sekundy}s", True, (255,255,255))
