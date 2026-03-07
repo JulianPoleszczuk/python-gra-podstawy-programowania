@@ -1,4 +1,5 @@
 import pygame
+import time
 from movement import ruszanie
 pygame.init()
 width, height = 1500,640
