@@ -1,10 +1,10 @@
 import pygame
-import time
 from movement import ruszanie
+from main_menu import menu
 pygame.init()
 width, height = 1500,640
 FPS = 60
-screen = pygame.display.set_mode((width, height,))
+screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("testa")
 czcionka = pygame.font.SysFont("JetBrains Mono", 24)
 print('test')
@@ -17,7 +17,8 @@ class Postac:
 
 gracz=Postac()
 dziala = True
-clock = pygame.time.Clock() 
+clock = pygame.time.Clock()
+# menu(screen) - jak sie usunie komentarz to wlaczy sie plik main_menu.py
 
 while dziala:
     for event in pygame.event.get():
