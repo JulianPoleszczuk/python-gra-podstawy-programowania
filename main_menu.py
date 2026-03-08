@@ -1,7 +1,7 @@
 import pygame
 import sys
 import subprocess
-
+import time
 pygame.init()
 szerokosc = 1280
 wysokosc = 720
@@ -15,6 +15,11 @@ bialy = (255,255,255)
 przezroczystosc_niebieska = (0,80,200,180)
 niebieski_pods = (0,140,255,220)
 CIEN = (0,0,0)
+tlo_x = 0
+kierunek = -1
+max_przes = 20
+ostatnia = pygame.time.get_ticks()
+pauza = 500
 try:
     czcionka_tytulowa = pygame.font.Font("assets/czcionki/JupiteroidLight-R90XW.ttf", 72)
     czcionka_przycisk = pygame.font.Font("assets/czcionki/JupiteroidLight-R90XW.ttf", 36)
@@ -57,8 +62,13 @@ przyciski = [
 dziala = True
 clock = pygame.time.Clock()
 while dziala:
+    teraz = pygame.time.get_ticks()
+    if teraz - ostatnia > pauza:
+        kierunek *= -1
+        ostatnia = teraz
+    tlo_x += kierunek * 0.1
     clock.tick(60)
-    ekran.blit(tlo,(0,0))
+    ekran.blit(tlo,(tlo_x,0))
     poz_mysz = pygame.mouse.get_pos()
     klik = pygame.mouse.get_pressed()
     tytul = czcionka_tytulowa.render("******",True,(0,0,0))

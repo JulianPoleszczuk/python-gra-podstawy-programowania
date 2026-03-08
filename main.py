@@ -1,3 +1,4 @@
+
 import pygame
 from movement import ruszanie
 pygame.init()
@@ -5,7 +6,10 @@ width, height = 1500,640
 FPS = 60
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("testa")
-czcionka = pygame.font.SysFont("JetBrains Mono", 24)
+try:
+    czcionka = pygame.font.SysFont("JetBrains Mono", 24)
+except:
+    czcionka = pygame.font.SysFont(None, 24)
 print('test')
 class Postac:
         x = 50
@@ -33,6 +37,6 @@ while dziala:
     screen.blit(napis_czasu, (10, 10))
 
 
-    pygame.display.update()
+    pygame.display.flip()
     clock.tick(FPS) # Limit fps - warto dodac do ustawien wybor. Na razie jest 60 i powinno tyle wystarczyc
 pygame.quit()
