@@ -1,6 +1,5 @@
 import pygame
 from movement import ruszanie
-from main_menu import menu
 pygame.init()
 width, height = 1500,640
 FPS = 60
@@ -18,7 +17,7 @@ class Postac:
 gracz=Postac()
 dziala = True
 clock = pygame.time.Clock()
-# menu(screen) - jak sie usunie komentarz to wlaczy sie plik main_menu.py
+
 
 while dziala:
     for event in pygame.event.get():
