@@ -3,6 +3,7 @@ import sys
 import subprocess
 import time
 pygame.init()
+pygame.mixer.init()
 szerokosc = 1280
 wysokosc = 720
 ekran = pygame.display.set_mode((szerokosc, wysokosc))
@@ -49,9 +50,6 @@ class Przycisk:
     def czy_klik(self,klik,poz_mysz):
         return self.rect.collidepoint(poz_mysz) and klik[0]
 
-
-
-
 przyciski = [
     Przycisk("Start", 320-70,"new"),
     Przycisk("Settings",400-70,"settings"),
@@ -61,6 +59,10 @@ przyciski = [
 
 dziala = True
 clock = pygame.time.Clock()
+pygame.mixer.music.load("assets/dzwieki/2012_november_fakeAwake04 back to A minor.wav")
+klikniecie = pygame.mixer.Sound("assets/dzwieki/click_sound.mp3")
+pygame.mixer.music.set_volume(0.4)
+pygame.mixer_music.play(-1)
 while dziala:
     teraz = pygame.time.get_ticks()
     if teraz - ostatnia > pauza:
@@ -80,15 +82,20 @@ while dziala:
         if i.czy_klik(klik, poz_mysz):
             pygame.time.delay(200)
             if i.akcja == "new":
+                klikniecie.play()
                 print("test1")
                 pygame.quit()
                 subprocess.run(["python","main.py"])
                 sys.exit()
             elif i.akcja == "settings":
+                klikniecie.play()
                 print("test2")
             elif i.akcja == "statistics":
+
+                klikniecie.play()
                 print("test3")
             elif i.akcja == "quit":
+                klikniecie.play()
                 dziala = False
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
