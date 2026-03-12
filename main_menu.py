@@ -8,7 +8,6 @@ szerokosc = 1280
 wysokosc = 720
 ekran = pygame.display.set_mode((szerokosc, wysokosc))
 pygame.display.set_caption("test")
-
 tlo = pygame.image.load("assets/tlo.png")
 tlo = pygame.transform.scale(tlo, (szerokosc, wysokosc))
 
